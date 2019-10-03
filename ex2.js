@@ -5,6 +5,21 @@
 // 16 17 18 19 20
 // 21 22 23 24 25
 
+//const matriz = [];
+//let cont = 1;
+
+//for (let i=0; i < 5; i++){
+//     const linha = [];
+//     console.log(linha);
+//     for (let j=0; j < 5; j++) { 
+//         linha[j] = cont;       // j é o índice do array da linha
+//         console.log(cont);     // cont é o número de 1 a 25
+//         cont++;
+//     }
+//     matriz[i] = linha;
+// }
+// console.log(matriz);
+
 // 2 - Agora inverta o loop e gere números de 25 a 1
 // [ [ 25, 24, 23, 22, 21 ],
 //   [ 20, 19, 18, 17, 16 ],
@@ -17,8 +32,25 @@
 // exemplo:
 // 4 4 4 4
 // 5 6 6 7
-// 9 9 9 9
-// Resultado esperado -> 36
+// // 9 9 9 9
+// // Resultado esperado -> 36
+// const arr4x4 = [[23, 56, 9, 0], 
+//                 [8, 24, 50, 5], 
+//                 [9, 10, 40, 7], 
+//                 [9, 48, 15, 2]];
+// let somaLinhas = [];
+// for (let i=0; i<arr4x4.length ; i++) {     // i= indice do array principal
+//     let soma = 0;
+
+//     for (let j=0; j<arr4x4.length; j++) {      // j= indice dos arrays internos
+//         soma = soma + arr4x4[i][j]; 
+//     }  
+
+// somaLinhas[i] = soma;
+// }
+// console.log(somaLinhas);
+// console.log("O maior valor de soma das linhas é " + Math.max(...somaLinhas));
+
 
 // 4 - Recebemos dados do front-end, que foram salvos na const abaixo.
 // para salvar no banco de dados, primeiro, precisamos criar uma função que verifica
@@ -38,6 +70,18 @@
 //   ["MARINA BATISTA", "marina@gol.com", "professora"],
 //   ["Antonia Maria", "ari@gol.com", "cientista"]
 // ]
+// let posicao;
+
+// for (i=0; i<dados.length; i++) {
+//     for (j=0; j<dados[i].length; j++) {
+
+//         posicao = dados[i].toLocaleString().toLowerCase().split(',');
+//         //toLocaleString() - transforma array em string
+//         //toLowerCase() - reduz as letras para minusculas
+//         //split - volta a string para array
+//     }
+//     console.log(posicao);
+// }
 
 // 6 - Printe no console os números que são múltiplos de 3.
 //  - os que são multiplos de 3 e 5.
@@ -59,27 +103,37 @@
 //   [71, 72, 73, 74, 75]
 // ]
 
-//7- const cacaPalavras = [
-//   ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//   ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//   ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//   ["a", "w", "e", "l", "e", "f", "a", "n", "t", "e"],
-//   ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//   ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//   ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//   ["c", "a", "s", "a", "t", "y", "u", "u", "i", "r"],
-//   ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
-//   ["a", "w", "e", "r", "e", "d", "e", "u", "i", "r"],
-//   ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"]
-// ]
-
-// const palavras = ["elefante", "casa", "rede"]
-
-// ache as palavras da array palavras na array cacaPalavras e diga em qual linha e em qual coluna
+// 7- ache as palavras da array palavras na array cacaPalavras e diga em qual linha e em qual coluna
 // elas estao.
 // Ex: a palavra elefante está na linha 4 e começa na coluna 3.
+const cacaPalavras = [
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "l", "e", "f", "a", "n", "t", "e"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["c", "a", "s", "a", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"],
+  ["a", "w", "e", "r", "e", "d", "e", "u", "i", "r"],
+  ["a", "w", "e", "r", "t", "y", "u", "u", "i", "r"]
+]
+const palavras = ["elefante", "casa", "rede"]
 
-// Dada uma url, vamos quebra-la e printar na tela o protocolo, domínio, path e parametros.
+for (let i=0; i<cacaPalavras.length; i++) {
+    cacaPalavras[i] = cacaPalavras[i].join("");
+    
+    for (let j=0; j<palavras.length; j++) {
+        if (cacaPalavras[i].indexOf(palavras[j]) > -1) {
+          console.log(`A palavra ${palavras[j]} está na linha ${i+1} e 
+          começa na coluna ${cacaPalavras[i].indexOf(palavras[j]) +1}`)
+        }
+    }
+}
+
+
+// 8-Dada uma url, vamos quebra-la e printar na tela o protocolo, domínio, path e parametros.
 
 // www.google.com/mail/user=fulano
 // Entrada: www.google.com/mail/user=fulano
