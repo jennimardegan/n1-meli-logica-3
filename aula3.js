@@ -67,11 +67,25 @@ pokemon.pergunta = function() {
 // 7.
 // Printe todas as propriedades
 // do seu pokemon no console.
+for (const item in pokemon) {
+    console.log(item)
+}
 
 // 8.
 // Printe todas as propriedades
 // e seus respectivos valores no
 // console no seguinte formato:
 // <propriedade>: <valor
+for (const item in pokemon) {
+    console.log(`Chave: ${item}| valor:${pokemon[item]}`)
+}
 
 //9 Faça uma função construtora de pokemon
+function Pokemon(nome, nomeJapa, cor) { //aqui poderia ser "a,b,c" . São apenas os parametros da função
+    this.nome = nome;
+    this.nomeJapa = nomeJapa;
+    this.cor = cor;
+}
+const pokemon1 = new Pokemon("charmander", "Hitokage", "amarelo")
+
+console.log(pokemon1.nome)
